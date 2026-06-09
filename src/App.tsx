@@ -395,9 +395,9 @@ export default function App() {
           </div>
           <div>
             <h1 className="text-sm md:text-lg font-bold tracking-tight uppercase leading-none">
-              Lumina Studio <span className={isDark ? 'text-zinc-500 font-normal' : 'text-slate-600 font-normal'}>/ Interactive Trainer</span>
+              Tutelage Studio
             </h1>
-            <p className="text-[10px] font-mono text-slate-600 dark:text-zinc-400 mt-1">Design state-of-the-art interactive micro-courses with advanced SCORM compatibility</p>
+            <p className="text-[10px] font-mono text-slate-700 dark:text-zinc-300 mt-1">Design interactive micro-courses.</p>
           </div>
         </div>
 
@@ -490,7 +490,7 @@ export default function App() {
         <div className="p-4 md:p-8 max-w-[1550px] w-full mx-auto no-print space-y-6">
           <div className="flex justify-between items-center border-b border-slate-200/80 dark:border-zinc-800/80 pb-3">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#2563eb] block">Lumina Sandbox Player</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#2563eb] block">Tutelage Sandbox Player</span>
               <h2 className="text-lg md:text-xl font-bold tracking-tight">Active Simulation Player Workspace</h2>
             </div>
             <button
@@ -521,105 +521,141 @@ export default function App() {
           
           {/* TAB 1: DETAILS */}
           {activeTab === 'details' && (
-            <div className="max-w-3xl mx-auto space-y-6">
-              <div className={`p-8 rounded-2xl border ${
-                isDark ? 'bg-zinc-900/50 border-zinc-800 text-zinc-100' : 'bg-white border-slate-200 text-slate-800'
-              } shadow-xl space-y-6`}>
-                <div className="border-b border-slate-200/55 dark:border-zinc-800 pb-4 flex items-center gap-2 text-blue-600">
-                  <BookOpen className="w-5 h-5 text-blue-600" />
-                  <h3 className="font-bold text-xs uppercase tracking-wider">
-                    Course Metadata Configuration
-                  </h3>
-                </div>
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 items-start">
 
-                <div className="space-y-4 text-xs font-mono text-slate-800 dark:text-zinc-100">
-                  <div>
-                    <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Training Course Title *</label>
-                    <input
-                      type="text"
-                      value={course.metadata.title}
-                      onChange={(e) => updateMetadata('title', e.target.value)}
-                      className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all font-semibold ${
-                        isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
-                      }`}
-                      placeholder="e.g. Masterclass in Web Grids"
-                    />
+              {/* Left: Course Metadata Form */}
+              <div className="xl:col-span-2 space-y-6">
+                <div className={`p-8 rounded-2xl border ${
+                  isDark ? 'bg-zinc-900/50 border-zinc-800 text-zinc-100' : 'bg-white border-slate-200 text-slate-800'
+                } shadow-xl space-y-6`}>
+                  <div className="border-b border-slate-200/55 dark:border-zinc-800 pb-4 flex items-center gap-2 text-blue-600">
+                    <BookOpen className="w-5 h-5 text-blue-600" />
+                    <h3 className="font-bold text-xs uppercase tracking-wider">
+                      Course Metadata Configuration
+                    </h3>
                   </div>
 
-                  <div>
-                    <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Description Overview Narrative</label>
-                    <textarea
-                      value={course.metadata.description}
-                      rows={4}
-                      onChange={(e) => updateMetadata('description', e.target.value)}
-                      className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all font-medium ${
-                        isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
-                      }`}
-                      placeholder="Provide overview details of what students learn..."
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-4 text-xs font-mono text-slate-800 dark:text-zinc-100">
                     <div>
-                      <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Publisher / Authorized Owner</label>
+                      <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Training Course Title *</label>
                       <input
                         type="text"
-                        value={course.metadata.owner}
-                        onChange={(e) => updateMetadata('owner', e.target.value)}
-                        className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all ${
+                        value={course.metadata.title}
+                        onChange={(e) => updateMetadata('title', e.target.value)}
+                        className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all font-semibold ${
                           isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
                         }`}
+                        placeholder="e.g. Onboarding Essentials"
                       />
                     </div>
+
                     <div>
-                      <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Course Release Version</label>
-                      <input
-                        type="text"
-                        value={course.metadata.version}
-                        onChange={(e) => updateMetadata('version', e.target.value)}
-                        className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all ${
+                      <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Description Overview Narrative</label>
+                      <textarea
+                        value={course.metadata.description}
+                        rows={4}
+                        onChange={(e) => updateMetadata('description', e.target.value)}
+                        className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all font-medium ${
                           isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
                         }`}
+                        placeholder="Provide overview details of what students learn..."
                       />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Publisher / Authorized Owner</label>
+                        <input
+                          type="text"
+                          value={course.metadata.owner}
+                          onChange={(e) => updateMetadata('owner', e.target.value)}
+                          className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all ${
+                            isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
+                          }`}
+                          placeholder="e.g. Acme Corp"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Course Release Version</label>
+                        <input
+                          type="text"
+                          value={course.metadata.version}
+                          onChange={(e) => updateMetadata('version', e.target.value)}
+                          className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all ${
+                            isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
+                          }`}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Publication Date</label>
+                        <input
+                          type="date"
+                          value={course.metadata.publicationDate}
+                          onChange={(e) => updateMetadata('publicationDate', e.target.value)}
+                          className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all ${
+                            isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Approximate Completion Duration</label>
+                        <input
+                          type="text"
+                          value={course.metadata.approxDuration}
+                          onChange={(e) => updateMetadata('approxDuration', e.target.value)}
+                          className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all ${
+                            isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
+                          }`}
+                          placeholder="e.g. 45 minutes"
+                        />
+                      </div>
                     </div>
                   </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Publication Date</label>
-                      <input
-                        type="date"
-                        value={course.metadata.publicationDate}
-                        onChange={(e) => updateMetadata('publicationDate', e.target.value)}
-                        className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all ${
-                          isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
-                        }`}
-                      />
-                    </div>
-                    <div>
-                      <label className="text-[10px] uppercase font-mono font-extrabold tracking-wider text-slate-900 dark:text-zinc-200 block mb-1.5">Approximate Completion Duration</label>
-                      <input
-                        type="text"
-                        value={course.metadata.approxDuration}
-                        onChange={(e) => updateMetadata('approxDuration', e.target.value)}
-                        className={`w-full p-3 border outline-none bg-transparent rounded-xl transition-all ${
-                          isDark ? 'border-zinc-800 focus:border-blue-500 bg-zinc-950 text-white' : 'border-slate-300 focus:border-blue-500 bg-slate-50 text-slate-900'
-                        }`}
-                        placeholder="e.g. 45 minutes"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Quick instructions indicator */}
-              <div className={`p-5 border rounded-2xl flex gap-3.5 items-start ${isDark ? 'bg-zinc-900/30 border-zinc-800/60' : 'bg-blue-50/30 border-blue-100'} text-xs font-mono shadow-sm`}>
-                <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="block uppercase text-[10px] mb-0.5 text-blue-600">Next Action Goal:</strong>
-                  <p className="opacity-75 leading-relaxed">Once you update the metadata properties, switch to the <strong>Section Content</strong> tab above to create sections, define modular flipboards, draft study flashcards, and write interactive quiz units.</p>
                 </div>
               </div>
+
+              {/* Right: How To Use Sidebar */}
+              <aside className="xl:col-span-1">
+                <div className={`p-6 rounded-2xl border sticky top-6 ${
+                  isDark ? 'bg-zinc-900/50 border-zinc-800 text-zinc-100' : 'bg-white border-slate-200 text-slate-800'
+                } shadow-xl space-y-5`}>
+                  <div className="border-b border-slate-200/55 dark:border-zinc-800 pb-4 flex items-center gap-2 text-blue-600">
+                    <Info className="w-5 h-5 text-blue-600" />
+                    <h3 className="font-bold text-xs uppercase tracking-wider">How To Use</h3>
+                  </div>
+
+                  <div className="space-y-3 text-xs font-mono">
+                    {([
+                      { step: "1", title: "Fill Course Details", body: "Enter your course title, description, owner, and duration on this page. These appear on the student's intro screen and certificate.", badgeCls: "bg-blue-600 text-white", labelCls: "text-blue-700 dark:text-blue-400" },
+                      { step: "2", title: "Build Sections", body: "Go to Section Content to add and edit sections. Each section has a layout (video, flip cards, table, timeline, etc.). Add as many sections as you need.", badgeCls: "bg-[#002F6C] text-white", labelCls: "text-[#002F6C] dark:text-blue-300" },
+                      { step: "3", title: "Add Flashcards", body: "Inside each section, add flashcards for key concepts. Students click the Flashcards button to flip through them before taking the quiz.", badgeCls: "bg-emerald-700 text-white", labelCls: "text-emerald-700 dark:text-emerald-400" },
+                      { step: "4", title: "Add Quiz Questions", body: "Add multiple-choice questions to each section. In Settings, choose whether quizzes are required before students can proceed.", badgeCls: "bg-violet-700 text-white", labelCls: "text-violet-700 dark:text-violet-400" },
+                      { step: "5", title: "Configure Settings", body: "Set the color theme, passing score, and whether to ask for student names. Choose Light or Dark as the default mode.", badgeCls: "bg-amber-600 text-white", labelCls: "text-amber-700 dark:text-amber-400" },
+                      { step: "6", title: "Preview & Publish", body: "Use Preview Simulator to test your course. When ready, export as a Standalone HTML file to share, or as a SCORM ZIP for an LMS.", badgeCls: "bg-rose-600 text-white", labelCls: "text-rose-700 dark:text-rose-400" },
+                    ] as { step: string; title: string; body: string; badgeCls: string; labelCls: string }[]).map(({ step, title, body, badgeCls, labelCls }) => (
+                      <div key={step} className={`flex gap-3 p-3 rounded-xl ${isDark ? 'bg-zinc-950/40' : 'bg-slate-50'}`}>
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-extrabold flex-shrink-0 mt-0.5 ${badgeCls}`}>
+                          {step}
+                        </div>
+                        <div>
+                          <strong className={`block text-[10px] uppercase tracking-wider font-extrabold mb-0.5 ${labelCls}`}>{title}</strong>
+                          <p className={`text-[10px] leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700'}`}>{body}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className={`pt-3 border-t ${isDark ? 'border-zinc-800' : 'border-slate-200'}`}>
+                    <p className={`text-[9px] font-mono leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700'}`}>
+                      💡 Tip: Use <strong>Export JSON Draft</strong> in the Publish tab to save your work and reload it later.
+                    </p>
+                  </div>
+                </div>
+              </aside>
+
             </div>
           )}
 
@@ -716,17 +752,17 @@ export default function App() {
                               className="absolute left-0 top-0 bottom-0 w-3 rounded-l-xl" 
                               style={{ 
                                 backgroundColor: sec.accentColor || ['#EF4444', '#F97316', '#F59E0B', '#10B981', '#3B82F6', '#A855F7', '#F43F5E', '#14B8A6'][idx % 8],
-                                boxShadow: `inset -2px 0 4px rgba(0,0,0,0.15), 0 0 10px ${sec.accentColor || ['#EF4444', '#F97316', '#F59E0B', '#10B981', '#3B82F6', '#A855F7', '#F43F5E', '#14B8A6'][idx % 8]}`
+                                boxShadow: `inset -2px 0 4px rgba(0,0,0,0.15)`
                               }}
                               aria-hidden="true"
                             />
                           )}
                           <div className="flex justify-between items-center text-[8.5px] font-mono text-slate-700 dark:text-zinc-300 font-extrabold">
                             <div className="flex items-center gap-1">
-                              <GripVertical className="w-3 h-3 text-slate-600 dark:text-zinc-400 hover:text-[#4FC4D4] transition-colors" />
+                              <GripVertical className="w-3 h-3 text-slate-700 dark:text-zinc-300 hover:text-[#4FC4D4] transition-colors" />
                               <strong>SECTION {String(idx + 1).padStart(2, '0')}</strong>
                             </div>
-                            <span className="uppercase text-[8px] tracking-tighter bg-blue-600/10 text-blue-605 px-1.5 py-0.5 rounded border border-blue-600/10 font-bold">
+                            <span className="uppercase text-[8px] tracking-tighter bg-blue-600/10 text-blue-800 px-1.5 py-0.5 rounded border border-blue-600/10 font-bold">
                               {sec.layoutType.replace(/_/g, ' ')}
                             </span>
                           </div>
@@ -745,7 +781,7 @@ export default function App() {
                               )}
                             </div>
                             
-                            <div className="flex gap-1 text-slate-600 dark:text-zinc-350 items-center">
+                            <div className="flex gap-1 text-slate-700 dark:text-zinc-300 items-center">
                               <button
                                 disabled={idx === 0}
                                 onClick={(e) => {
@@ -813,7 +849,7 @@ export default function App() {
                       <Plus className="w-3.5 h-3.5" />
                       <span>Add a new section</span>
                     </button>
-                    <span className="text-[8px] text-slate-600 dark:text-zinc-400 block leading-tight">Creates a corresponding module section appended to the bottom of the course outline.</span>
+                    <span className="text-[8px] text-slate-700 dark:text-zinc-300 block leading-tight">Creates a corresponding module section appended to the bottom of the course outline.</span>
                   </div>
                 )}
               </aside>
@@ -852,9 +888,6 @@ export default function App() {
                       </div>
 
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[9px] font-mono uppercase bg-neutral-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-800 px-3 py-1.5 rounded-xl font-bold">
-                          Layout: {activeSection.layoutType.replace(/_/g, ' ')}
-                        </span>
                       </div>
                     </div>
 
@@ -866,7 +899,7 @@ export default function App() {
 
                   </div>
                 ) : (
-                  <div className="p-12 text-center border rounded-2xl border-dashed border-slate-300 dark:border-zinc-800 font-mono text-xs text-neutral-500 dark:text-zinc-500">
+                  <div className="p-12 text-center border rounded-2xl border-dashed border-slate-300 dark:border-zinc-800 font-mono text-xs text-neutral-700 dark:text-zinc-400">
                     Choose a training section on the left list outline to start detailing the active module properties.
                   </div>
                 )}
@@ -884,7 +917,7 @@ export default function App() {
                 <div className="border-b border-slate-200/55 dark:border-zinc-800 pb-4 flex items-center gap-2">
                   <Settings className="w-5 h-5 text-[#002F6C] dark:text-blue-400" />
                   <h3 className={`font-bold text-xs uppercase tracking-wider ${isDark ? 'text-zinc-100' : 'text-slate-900'}`}>
-                    Lumina Global Player Settings
+                    Global Player Settings
                   </h3>
                 </div>
 
@@ -896,7 +929,7 @@ export default function App() {
                   }`}>
                     <div className="text-xs pr-2">
                       <strong className={`block uppercase tracking-wider font-extrabold ${isDark ? 'text-zinc-100' : 'text-slate-900'}`}>Default Style Theme</strong>
-                      <span className={`text-[10px] block mt-1 ${isDark ? 'text-zinc-400' : 'text-slate-600 font-semibold'}`}>Determine initial visual mode for student sections.</span>
+                      <span className={`text-[10px] block mt-1 ${isDark ? 'text-zinc-300' : 'text-slate-700 font-semibold'}`}>Determine initial visual mode for student sections.</span>
                     </div>
                     <div className="flex border border-slate-200 dark:border-zinc-800 rounded-xl overflow-hidden bg-white dark:bg-zinc-900 shrink-0">
                       <button
@@ -920,7 +953,7 @@ export default function App() {
                   }`}>
                     <div className="text-xs">
                       <strong className={`block uppercase tracking-wider font-extrabold ${isDark ? 'text-zinc-100' : 'text-slate-900'}`}>Curriculum color theme (WCAG AA)</strong>
-                      <span className={`text-[10px] block mt-1 ${isDark ? 'text-zinc-400' : 'text-slate-600 font-semibold'}`}>Choose from three WCAG contrast-compliant color spectrums for all sections.</span>
+                      <span className={`text-[10px] block mt-1 ${isDark ? 'text-zinc-300' : 'text-slate-700 font-semibold'}`}>Choose from three WCAG contrast-compliant color spectrums for all sections.</span>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <button
@@ -971,7 +1004,7 @@ export default function App() {
                     />
                     <div className="text-xs">
                       <strong className={`block uppercase tracking-wider font-extrabold ${isDark ? 'text-zinc-100' : 'text-slate-900'}`}>Auto section progression</strong>
-                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-400' : 'text-slate-600 font-semibold'}`}>Automatically trigger transition to the next unit section once a student resolves assessment answers.</span>
+                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700 font-semibold'}`}>Automatically trigger transition to the next unit section once a student resolves assessment answers.</span>
                     </div>
                   </label>
 
@@ -987,7 +1020,7 @@ export default function App() {
                     />
                     <div className="text-xs">
                       <strong className={`block uppercase tracking-wider font-extrabold ${isDark ? 'text-zinc-100' : 'text-slate-900'}`}>Prompt student name on entrance</strong>
-                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-400' : 'text-slate-600 font-semibold'}`}>Prompt student credentials on home section. SCORM exports can toggle this OFF if utilizing automated LMS handles.</span>
+                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700 font-semibold'}`}>Prompt student credentials on home section. SCORM exports can toggle this OFF if utilizing automated LMS handles.</span>
                     </div>
                   </label>
 
@@ -1003,7 +1036,7 @@ export default function App() {
                     />
                     <div className="text-xs">
                       <strong className={`block uppercase tracking-wider font-extrabold ${isDark ? 'text-zinc-100' : 'text-slate-900'}`}>Allow Reference Sheet from Home</strong>
-                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-400' : 'text-slate-600 font-semibold'}`}>Enable a quick direct summary bypass link straight from the introduction section.</span>
+                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700 font-semibold'}`}>Enable a quick direct summary bypass link straight from the introduction section.</span>
                     </div>
                   </label>
 
@@ -1019,7 +1052,7 @@ export default function App() {
                     />
                     <div className="text-xs">
                       <strong className={`block uppercase tracking-wider font-extrabold ${isDark ? 'text-zinc-100' : 'text-slate-900'}`}>Sound chime auditory feedback</strong>
-                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-400' : 'text-slate-600 font-semibold'}`}>Plays responsive retrograde 8-bit sound chimes during answer updates and button triggers.</span>
+                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700 font-semibold'}`}>Plays responsive retrograde 8-bit sound chimes during answer updates and button triggers.</span>
                     </div>
                   </label>
 
@@ -1035,7 +1068,7 @@ export default function App() {
                     />
                     <div className="text-xs">
                       <strong className={`block uppercase tracking-wider font-extrabold ${isDark ? 'text-zinc-100' : 'text-slate-900'}`}>Mandatory Assessment Quizzes</strong>
-                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-400' : 'text-slate-600 font-semibold'}`}>Ensure students take assessments. If disabled, study quizzes become optional, and minimum passing percentage is not enforced.</span>
+                      <span className={`text-[10px] block mt-1 leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700 font-semibold'}`}>Ensure students take assessments. If disabled, study quizzes become optional, and minimum passing percentage is not enforced.</span>
                     </div>
                   </label>
 
@@ -1055,7 +1088,7 @@ export default function App() {
                         onChange={(e) => updateSettings('passingScorePercent', parseInt(e.target.value, 10))}
                         className="w-full accent-blue-600 bg-neutral-200 dark:bg-zinc-800 h-1.5 rounded-lg cursor-pointer"
                       />
-                      <span className={`text-[10px] leading-tight block ${isDark ? 'text-zinc-400' : 'text-slate-600 font-semibold'}`}>Students must score at least this value in quiz questions to pass the course.</span>
+                      <span className={`text-[10px] leading-tight block ${isDark ? 'text-zinc-300' : 'text-slate-700 font-semibold'}`}>Students must score at least this value in quiz questions to pass the course.</span>
                     </div>
                   ) : (
                     <div className="p-4 bg-emerald-500/5 text-emerald-800 dark:text-emerald-400 text-[11px] rounded-xl border border-emerald-500/10 font-mono leading-relaxed">
@@ -1139,7 +1172,7 @@ export default function App() {
                   />
                   <button
                     onClick={() => { playBeep(true); setShowDefaultRestoreModal(true); }}
-                    className="py-2 px-4 text-slate-400 hover:text-rose-600 transition-colors border border-slate-200 dark:border-zinc-800 rounded-xl cursor-pointer"
+                    className="py-2 px-4 text-slate-700 dark:text-zinc-300 hover:text-rose-600 transition-colors border border-slate-200 dark:border-zinc-700 rounded-xl cursor-pointer"
                   >
                     Reset template
                   </button>
@@ -1175,7 +1208,7 @@ export default function App() {
                 isDark ? 'bg-zinc-900/50 border-zinc-800 text-zinc-100' : 'bg-white border-slate-200 text-neutral-900'
               } shadow-xl space-y-6`}>
                 <div>
-                  <h3 className="font-bold text-base uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-100/85 dark:border-zinc-800 pb-3 text-neutral-850 dark:text-zinc-300">
+                  <h3 className="font-bold text-base uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-100/85 dark:border-zinc-800 pb-3 text-neutral-900 dark:text-zinc-300">
                     <Package className="w-5 h-5 text-blue-600" />
                     <span>Releases & SCORM Packager Center</span>
                   </h3>
@@ -1237,7 +1270,7 @@ export default function App() {
 
       {/* FOOTER BAR */}
       <footer className="py-10 text-center text-[10px] font-mono opacity-50 no-print border-t border-slate-200/60 dark:border-zinc-800 mt-16">
-        <span>Lumina Interactive Studio • Interactive Training Course Builder • 2026</span>
+        <span>Tutelage Studio • Interactive Training Course Builder • 2026</span>
       </footer>
 
       {/* LAYOUT PICKER MODAL */}
@@ -1253,12 +1286,12 @@ export default function App() {
               </h4>
               <button
                 onClick={() => setShowLayoutPickerModal(false)}
-                className={`p-1.5 rounded-lg text-xs font-mono border cursor-pointer ${isDark ? 'border-zinc-700 text-zinc-400 hover:bg-zinc-800' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}
+                className={`p-1.5 rounded-lg text-xs font-mono border cursor-pointer ${isDark ? 'border-zinc-700 text-zinc-200 hover:bg-zinc-800' : 'border-slate-200 text-slate-700 hover:bg-slate-50'}`}
               >
                 ✕
               </button>
             </div>
-            <p className={`text-[11px] font-mono ${isDark ? 'text-zinc-400' : 'text-slate-600'}`}>
+            <p className={`text-[11px] font-mono ${isDark ? 'text-zinc-300' : 'text-slate-700'}`}>
               Select a layout type for the new section. You can change it later from the editor.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -1308,7 +1341,7 @@ export default function App() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm font-bold uppercase tracking-tight text-[#002F6C] dark:text-[#4FC4D4]">Confirm Section Deletion</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400 font-mono leading-relaxed">
+                <p className="text-xs text-slate-700 dark:text-zinc-200 font-mono leading-relaxed">
                   Are you sure you want to delete the section <strong>"{course.sections.find(s => s.id === sectionIdToDelete)?.title}"</strong>?
                   All custom texts, questions, layout settings, and media content inside this section will be permanently deleted.
                 </p>
@@ -1319,7 +1352,7 @@ export default function App() {
                 type="button"
                 onClick={() => { playBeep(false); setSectionIdToDelete(null); }}
                 className={`px-4 py-2 rounded-xl border ${
-                  isDark ? 'border-zinc-700 text-zinc-400 hover:bg-zinc-800' : 'border-slate-200 text-slate-500 hover:bg-slate-50'
+                  isDark ? 'border-zinc-700 text-zinc-400 hover:bg-zinc-800' : 'border-slate-200 text-slate-700 hover:bg-slate-50'
                 } transition-all cursor-pointer`}
               >
                 No, Keep Section
@@ -1354,8 +1387,8 @@ export default function App() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm font-bold uppercase tracking-tight text-[#002F6C] dark:text-[#4FC4D4] font-sans">Restore Sandbox Template?</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400 font-mono leading-relaxed">
-                  Are you sure you want to reset and restore the default <strong>"Generative AI Academy"</strong> training sample course?
+                <p className="text-xs text-slate-700 dark:text-zinc-200 font-mono leading-relaxed">
+                  Are you sure you want to reset and restore the default blank starter course?
                   Any current unsaved edits will be rewritten.
                 </p>
               </div>
@@ -1365,7 +1398,7 @@ export default function App() {
                 type="button"
                 onClick={() => { playBeep(false); setShowDefaultRestoreModal(false); }}
                 className={`px-4 py-2 rounded-xl border ${
-                  isDark ? 'border-zinc-700 text-zinc-400 hover:bg-zinc-800' : 'border-slate-200 text-slate-500 hover:bg-slate-50'
+                  isDark ? 'border-zinc-700 text-zinc-400 hover:bg-zinc-800' : 'border-slate-200 text-slate-700 hover:bg-slate-50'
                 } transition-all cursor-pointer`}
               >
                 Cancel, Keep Existing

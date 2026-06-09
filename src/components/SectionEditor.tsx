@@ -36,7 +36,7 @@ interface SectionEditorProps {
 function CharLimitRecommend({ current, recommendedMax }: { current: number; recommendedMax: number }) {
   const isOver = current > recommendedMax;
   return (
-    <span className={`text-[9px] font-mono block mt-0.5 ${isOver ? 'text-rose-600 dark:text-rose-400 font-extrabold' : 'text-slate-500 dark:text-zinc-400'}`}>
+    <span className={`text-[9px] font-mono block mt-0.5 ${isOver ? 'text-rose-600 dark:text-rose-400 font-extrabold' : 'text-slate-700 dark:text-zinc-300'}`}>
       Recommended: max {recommendedMax} chars (Current: <strong>{current}</strong>{isOver ? ' - Warning: May spill out' : ''})
     </span>
   );
@@ -192,7 +192,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                   className="w-full p-2 text-xs font-mono border rounded outline-none bg-transparent"
                   placeholder="e.g. https://www.youtube.com/embed/zjkBMFhNj_g"
                 />
-                <span className="text-[9px] text-gray-500 font-mono italic block mt-0.5">YouTube embed link format is recommended</span>
+                <span className="text-[9px] text-slate-700 dark:text-zinc-300 font-mono italic block mt-0.5">YouTube embed link format is recommended</span>
               </div>
               <div>
                 <label className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-800 dark:text-zinc-300 block mb-1">Bottom Caption Description</label>
@@ -447,7 +447,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                         const nextBoxes = data.boxes.filter(bx => bx.id !== b.id);
                         updateSectionPart('bento_highlights', { ...data, boxes: nextBoxes });
                       }}
-                      className="absolute top-2 right-2 p-1 text-rose-500 hover:text-rose-455"
+                      className="absolute top-2 right-2 p-1 text-rose-500 hover:text-rose-600"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -574,7 +574,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                         const nextSteps = data.steps.filter(item => item.id !== st.id);
                         updateSectionPart('milestone_timeline', { ...data, steps: nextSteps });
                       }}
-                      className="absolute top-2 right-2 p-1 text-rose-500 hover:text-rose-455"
+                      className="absolute top-2 right-2 p-1 text-rose-500 hover:text-rose-600"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -755,7 +755,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                         const nextTabs = data.tabs.filter(tab => tab.id !== tb.id);
                         updateSectionPart('multi_tab_dive', { ...data, tabs: nextTabs });
                       }}
-                      className="absolute top-2 right-2 p-1 text-rose-500 hover:text-rose-455"
+                      className="absolute top-2 right-2 p-1 text-rose-500 hover:text-rose-600"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -856,7 +856,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                         const nextItems = data.items.filter(item => item.id !== it.id);
                         updateSectionPart('qa_accordion', { ...data, items: nextItems });
                       }}
-                      className="absolute top-2 right-2 p-1 text-rose-500 hover:text-rose-455"
+                      className="absolute top-2 right-2 p-1 text-rose-500 hover:text-rose-600"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -935,7 +935,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             );
           })}
         </div>
-        <p className="text-[9px] font-mono text-slate-600 dark:text-zinc-400 mt-1 leading-relaxed">
+        <p className="text-[9px] font-mono text-slate-700 dark:text-zinc-300 mt-1 leading-relaxed">
           The selected accent color will highlight the left border of this section's outline card inside the simulator player layout outline.
         </p>
       </div>
@@ -952,7 +952,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             className={`p-2.5 border font-mono text-[10px] tracking-tight uppercase text-center flex flex-col items-center justify-center gap-1.5 transition-all select-none ${
               section.layoutType === 'text_video'
                 ? 'bg-[#2563eb] text-white border-black font-extrabold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[-1px] translate-y-[-1px]'
-                : (isDark ? 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
+                : (isDark ? 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
             }`}
           >
             <Video className="w-4 h-4" />
@@ -964,7 +964,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             className={`p-2.5 border font-mono text-[10px] tracking-tight uppercase text-center flex flex-col items-center justify-center gap-1.5 transition-all select-none ${
               section.layoutType === 'text_table'
                 ? 'bg-[#2563eb] text-white border-black font-extrabold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[-1px] translate-y-[-1px]'
-                : (isDark ? 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
+                : (isDark ? 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
             }`}
           >
             <Table className="w-4 h-4" />
@@ -976,7 +976,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             className={`p-2.5 border font-mono text-[10px] tracking-tight uppercase text-center flex flex-col items-center justify-center gap-1.5 transition-all select-none ${
               section.layoutType === 'cards_grid'
                 ? 'bg-[#2563eb] text-white border-black font-extrabold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[-1px] translate-y-[-1px]'
-                : (isDark ? 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
+                : (isDark ? 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
             }`}
           >
             <Grid className="w-4 h-4" />
@@ -988,7 +988,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             className={`p-2.5 border font-mono text-[10px] tracking-tight uppercase text-center flex flex-col items-center justify-center gap-1.5 transition-all select-none ${
               section.layoutType === 'bento_highlights'
                 ? 'bg-[#2563eb] text-white border-black font-extrabold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[-1px] translate-y-[-1px]'
-                : (isDark ? 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
+                : (isDark ? 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
             }`}
           >
             <LayoutGrid className="w-4 h-4" />
@@ -1000,7 +1000,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             className={`p-2.5 border font-mono text-[10px] tracking-tight uppercase text-center flex flex-col items-center justify-center gap-1.5 transition-all select-none ${
               section.layoutType === 'milestone_timeline'
                 ? 'bg-[#2563eb] text-white border-black font-extrabold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[-1px] translate-y-[-1px]'
-                : (isDark ? 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
+                : (isDark ? 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
             }`}
           >
             <GitCommit className="w-4 h-4" />
@@ -1012,7 +1012,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             className={`p-2.5 border font-mono text-[10px] tracking-tight uppercase text-center flex flex-col items-center justify-center gap-1.5 transition-all select-none ${
               section.layoutType === 'code_quote_spotlight'
                 ? 'bg-[#2563eb] text-white border-black font-extrabold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[-1px] translate-y-[-1px]'
-                : (isDark ? 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
+                : (isDark ? 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
             }`}
           >
             <Code className="w-4 h-4" />
@@ -1024,7 +1024,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             className={`p-2.5 border font-mono text-[10px] tracking-tight uppercase text-center flex flex-col items-center justify-center gap-1.5 transition-all select-none ${
               section.layoutType === 'multi_tab_dive'
                 ? 'bg-[#2563eb] text-white border-black font-extrabold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[-1px] translate-y-[-1px]'
-                : (isDark ? 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
+                : (isDark ? 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
             }`}
           >
             <FolderLock className="w-4 h-4" />
@@ -1036,7 +1036,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
             className={`p-2.5 border font-mono text-[10px] tracking-tight uppercase text-center flex flex-col items-center justify-center gap-1.5 transition-all select-none ${
               section.layoutType === 'qa_accordion'
                 ? 'bg-[#2563eb] text-white border-black font-extrabold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[-1px] translate-y-[-1px]'
-                : (isDark ? 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
+                : (isDark ? 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700' : 'bg-white border-black text-neutral-800 hover:bg-neutral-50 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]')
             }`}
           >
             <HelpCircle className="w-4 h-4" />
@@ -1072,7 +1072,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
           />
           <div className="text-xs">
             <strong className="block uppercase tracking-wider text-neutral-800 dark:text-zinc-200">Include Assessment Challenge</strong>
-            <span className="text-slate-600 dark:text-zinc-400 text-[10px] block font-mono mt-0.5">Toggle to set up quiz assessments at the footer of this section.</span>
+            <span className="text-slate-700 dark:text-zinc-300 text-[10px] block font-mono mt-0.5">Toggle to set up quiz assessments at the footer of this section.</span>
           </div>
         </label>
 
@@ -1088,7 +1088,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
           />
           <div className="text-xs">
             <strong className="block uppercase tracking-wider text-neutral-800 dark:text-zinc-200">Include Study Flashcards</strong>
-            <span className="text-slate-600 dark:text-zinc-400 text-[10px] block font-mono mt-0.5">Toggle to set up flippable memory booster flashcards.</span>
+            <span className="text-slate-700 dark:text-zinc-300 text-[10px] block font-mono mt-0.5">Toggle to set up flippable memory booster flashcards.</span>
           </div>
         </label>
       </div>
@@ -1270,7 +1270,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                   <Trash2 className="w-4 h-4" />
                 </button>
                 <div>
-                  <label className="text-[8px] font-mono uppercase text-slate-800 dark:text-zinc-350 font-bold block mb-0.5">Card Front Question / Prompt Title:</label>
+                  <label className="text-[8px] font-mono uppercase text-slate-800 dark:text-zinc-300 font-bold block mb-0.5">Card Front Question / Prompt Title:</label>
                   <input
                     type="text"
                     value={fc.front}
@@ -1284,7 +1284,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                   />
                 </div>
                 <div>
-                  <label className="text-[8px] font-mono uppercase text-slate-800 dark:text-zinc-350 font-bold block mb-0.5">Card Back Answer Explanation Reveal:</label>
+                  <label className="text-[8px] font-mono uppercase text-slate-800 dark:text-zinc-300 font-bold block mb-0.5">Card Back Answer Explanation Reveal:</label>
                   <textarea
                     value={fc.back}
                     rows={2}
@@ -1332,7 +1332,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                 className={`px-3 py-1.5 text-[10px] font-mono font-bold uppercase flex items-center gap-1.5 transition-colors ${
                   narrationTab === 'upload'
                     ? 'bg-[#002F6C] text-white'
-                    : (isDark ? 'bg-zinc-900 text-zinc-400 hover:bg-zinc-800' : 'bg-white text-slate-600 hover:bg-slate-50')
+                    : (isDark ? 'bg-zinc-900 text-zinc-300 hover:bg-zinc-800' : 'bg-white text-slate-700 hover:bg-slate-50')
                 }`}
               >
                 <Upload className="w-3 h-3" /> Upload File
@@ -1343,7 +1343,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                 className={`px-3 py-1.5 text-[10px] font-mono font-bold uppercase flex items-center gap-1.5 transition-colors ${
                   narrationTab === 'url'
                     ? 'bg-[#002F6C] text-white'
-                    : (isDark ? 'bg-zinc-900 text-zinc-400 hover:bg-zinc-800' : 'bg-white text-slate-600 hover:bg-slate-50')
+                    : (isDark ? 'bg-zinc-900 text-zinc-300 hover:bg-zinc-800' : 'bg-white text-slate-700 hover:bg-slate-50')
                 }`}
               >
                 <Link className="w-3 h-3" /> External URL
@@ -1352,7 +1352,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
 
             {narrationTab === 'upload' ? (
               <div className="space-y-2">
-                <p className={`text-[10px] font-mono leading-relaxed ${isDark ? 'text-zinc-400' : 'text-slate-600'}`}>
+                <p className={`text-[10px] font-mono leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700'}`}>
                   Upload an MP3, WAV, or OGG file. It will be embedded in the exported HTML as a self-contained data URL.
                   <span className="text-amber-600 dark:text-amber-400 font-bold"> Large files increase export size.</span>
                 </p>
@@ -1360,7 +1360,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                   type="button"
                   onClick={() => audioFileInputRef.current?.click()}
                   className={`flex items-center gap-2 px-4 py-2.5 border-2 border-dashed rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
-                    isDark ? 'border-zinc-700 text-zinc-300 hover:border-blue-500 hover:text-blue-400' : 'border-slate-300 text-slate-600 hover:border-blue-500 hover:text-blue-600'
+                    isDark ? 'border-zinc-700 text-zinc-300 hover:border-blue-500 hover:text-blue-400' : 'border-slate-300 text-slate-700 hover:border-blue-500 hover:text-blue-600'
                   }`}
                 >
                   <Upload className="w-4 h-4" />
@@ -1392,7 +1392,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
               </div>
             ) : (
               <div className="space-y-2">
-                <p className={`text-[10px] font-mono leading-relaxed ${isDark ? 'text-zinc-400' : 'text-slate-600'}`}>
+                <p className={`text-[10px] font-mono leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-700'}`}>
                   Link to a hosted audio file. The exported HTML will stream it from the URL — students need internet access.
                 </p>
                 <input
@@ -1416,7 +1416,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
           <div className="space-y-3">
             {/* Live preview player */}
             <div className={`p-3 rounded-xl border ${isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-slate-50 border-slate-200'}`}>
-              <p className={`text-[9px] font-mono uppercase tracking-wider mb-2 ${isDark ? 'text-zinc-500' : 'text-slate-500'} font-bold`}>
+              <p className={`text-[9px] font-mono uppercase tracking-wider mb-2 ${isDark ? 'text-zinc-300' : 'text-slate-700'} font-bold`}>
                 Preview
                 {section.narration.fileSizeKb && (
                   <span className={`ml-2 ${section.narration.fileSizeKb > 5000 ? 'text-amber-500' : 'text-emerald-500'}`}>
@@ -1460,7 +1460,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
               />
               <div className="text-xs">
                 <strong className="block uppercase tracking-wider text-neutral-800 dark:text-zinc-200">Auto-play when section loads</strong>
-                <span className="text-slate-600 dark:text-zinc-400 text-[10px] block font-mono mt-0.5">
+                <span className="text-slate-700 dark:text-zinc-300 text-[10px] block font-mono mt-0.5">
                   Narration will begin automatically when the student navigates to this section.
                 </span>
               </div>
@@ -1479,7 +1479,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
               <div className="w-10 h-10 rounded-full bg-amber-500/15 text-amber-500 flex items-center justify-center mt-0.5 flex-shrink-0 text-lg">⚠</div>
               <div className="space-y-1">
                 <h4 className="text-sm font-bold uppercase tracking-tight text-[#002F6C] dark:text-[#4FC4D4]">Change Section Layout?</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400 font-mono leading-relaxed">
+                <p className="text-xs text-slate-700 dark:text-zinc-300 font-mono leading-relaxed">
                   Switching to <strong className="uppercase">{pendingLayout.replace(/_/g, ' ')}</strong> will discard the existing content for the current layout type. This cannot be undone.
                 </p>
               </div>
@@ -1489,7 +1489,7 @@ export default function SectionEditor({ section, isDark, onChange }: SectionEdit
                 type="button"
                 onClick={() => setPendingLayout(null)}
                 className={`px-4 py-2 rounded-xl border ${
-                  isDark ? 'border-zinc-700 text-zinc-400 hover:bg-zinc-800' : 'border-slate-200 text-slate-500 hover:bg-slate-50'
+                  isDark ? 'border-zinc-700 text-zinc-200 hover:bg-zinc-800' : 'border-slate-200 text-slate-700 hover:bg-slate-50'
                 } transition-all cursor-pointer`}
               >
                 Cancel
